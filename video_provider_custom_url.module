@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function video_provider_custom_url_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  // Work only with video bundle.
+  if ($entity->bundle() != 'video') {
+    return;
+  }
+
+  // Skip if field video is empty.
+  if ($entity->get('field_video')->isEmpty()) {
+    return;
+  }
+
+  // Set thumbnail data to video field with customurl type.
+  $video = $entity->get('field_video')->getValue();
+  $video_thumbnail = $entity->get('field_video_thumbnail')->getValue();
+  foreach ($video as $key => $value) {
+    $data = unserialize($value['data']);
+    if ($data['type'] != 'customurl') {
+      continue;
+    }
+    $data['thumbnail'] = $video_thumbnail[0] ?: '';
+    $video[$key]['data'] = serialize($data);
+  }
+
+  $entity->set('field_video', $video);
+}

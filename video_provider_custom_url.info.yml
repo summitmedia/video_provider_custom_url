@@ -1,0 +1,7 @@
+name: Custom URL Video Provider.
+type: module
+description: A video provider for custom URL.
+package: Video
+core: 8.x
+dependencies:
+  - video

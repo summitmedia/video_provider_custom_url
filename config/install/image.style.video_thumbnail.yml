@@ -1,0 +1,12 @@
+dependencies: {  }
+name: video_thumbnail
+label: 'Video Thumbnail'
+effects:
+  a5761993-8ea2-4ed6-906f-51f213eb15b7:
+    uuid: a5761993-8ea2-4ed6-906f-51f213eb15b7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 870
+      height: 480
+      anchor: center-center

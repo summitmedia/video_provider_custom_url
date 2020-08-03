@@ -1,0 +1,5 @@
+services:
+  stream_wrapper.custom_url:
+    class: Drupal\video_provider_custom_url\StreamWrapper\CustomUrlStream
+    tags:
+      - { name: stream_wrapper, scheme: customurl }

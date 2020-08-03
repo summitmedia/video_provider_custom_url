@@ -1,0 +1,5 @@
+video_provider_custom_url.video_thumbnail:
+  version: VERSION
+  css:
+    theme:
+      css/video_thumbnail.css: {}

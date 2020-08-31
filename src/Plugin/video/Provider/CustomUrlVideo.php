@@ -82,6 +82,15 @@ class CustomUrlVideo extends ProviderPluginBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getLocalThumbnailUri() {
+    $data = $this->getVideoMetadata();
+    $ext = pathinfo($this->getRemoteThumbnailUri(), PATHINFO_EXTENSION);
+    return $this->getUploadLocation() . '/' . $data['id'] . '.' . $ext;
+  }
+
+  /**
    * Helper function to get file storage service.
    *
    * @return \Drupal\Core\Entity\EntityStorageInterface|\Drupal\file\FileStorage

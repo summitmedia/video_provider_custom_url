@@ -78,7 +78,7 @@ class CustomUrlVideo extends ProviderPluginBase {
    * {@inheritdoc}
    */
   public function getRemoteThumbnailUrl() {
-    return file_create_url($this->getRemoteThumbnailUri());
+    return \Drupal::service('file_url_generator')->generateAbsoluteString($this->getRemoteThumbnailUri());
   }
 
   /**
